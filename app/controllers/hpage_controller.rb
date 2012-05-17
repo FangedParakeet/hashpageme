@@ -15,7 +15,7 @@ class HpageController < ApplicationController
   end
 
   def new
-    categories = Category.find_all_by_user_id(session[:user_id])
+    categories = current_user.categories
     @cat1 = categories[0]
     @cat2 = categories[1]
     @cat3 = categories[2]
@@ -34,14 +34,14 @@ class HpageController < ApplicationController
     hashtags3.each do |hashtag|
       @tags3 << hashtag.tag
     end
-    @bio = User.find_by_id(session[:user_id]).bio
+    @bio = current_user.bio
   end
   
   def create
-    Category.find_all_by_user_id(session[:user_id]).each do |cat|
+    current_user.categories.each do |cat|
       cat.destroy
     end
-    Hashtag.find_all_by_user_id(session[:user_id]).each do |tag|
+    current_user.hashtags.each do |tag|
       tag.destroy
     end
     User.find_by_id(session[:user_id]).bio = params[:bio]
@@ -122,16 +122,16 @@ class HpageController < ApplicationController
       flash[:no_page] = "Sorry--#{params[:id]} doesn't have a HashPage! Tell them to get one!"
       redirect_to root_url
     else
-      if Tweet.find_all_by_user_id(@user.id)
-        page = ((Tweet.find_all_by_user_id(@user.id).count)/100)+1
+      if @user.tweets
+        page = ((@user.tweets.count)/100)+1
       else
         page = 1
       end
       all_tweets = fetch_tweets(params[:id], page)
-      @categories = Category.find_all_by_user_id(@user.id)
-      hashes = Hashtag.find_all_by_user_id(@user.id)
+      @categories = @user.categories
+      hashes = @user.hashtags
       all_tweets.each do |tweet|
-        if Tweet.find_by_text(tweet["text"].sub(/&amp;/, '&'))
+        if @user.tweets.find_by_text(tweet["text"].sub(/&amp;/, '&'))
         else
         t = Tweet.new
         t.text = tweet["text"].sub(/&amp;/, '&')
@@ -139,7 +139,7 @@ class HpageController < ApplicationController
         t.save
       end
       end
-      @local_tweets = Tweet.all
+      @local_tweets = @user.tweets
       @local_tweets.each do |tweet|
         hashes.each do |hash|
           if hash.tag
