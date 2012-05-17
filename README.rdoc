@@ -1,0 +1,8 @@
+-- HashPageMe --
+
+  This app takes a user's Twitter feed and creates a more personal representation of it
+  ordered by user-chosen categories, filtered by user-defined hash-tags. This not only
+  allows a user's Twitter feed to show more about the user, but also encourages the user
+  to make better use of hash-tags to keep one's HashPage more organised.
+  
+  w/Dave, Evan, Zak, Ezekiel, & Ed
