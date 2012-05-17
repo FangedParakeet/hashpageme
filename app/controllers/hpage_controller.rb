@@ -2,6 +2,8 @@ require 'open-uri'
 require 'json'
 
 class HpageController < ApplicationController
+  before_filter :require_login, :only => [:new, :create]
+  
   def fetch_tweets(name, page)
     result = []
     tweets = JSON.parse(open("http://api.twitter.com/1/statuses/user_timeline.json?screen_name=#{name}&count=100&page=#{page}&include_rts=1&trim_user=true&include_entities=false&callback=?").read)  
