@@ -37,7 +37,6 @@ class HpageController < ApplicationController
       hashtags3.each do |hashtag|
         @tags3 << hashtag.tag
       end
-      @bio = current_user.bio
     else
       @cat1 = nil
       @cat2 = nil
@@ -46,6 +45,7 @@ class HpageController < ApplicationController
       @tags2 = []
       @tags3 = []
     end
+    @bio = current_user.bio
   end
   
   def create
