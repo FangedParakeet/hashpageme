@@ -133,11 +133,7 @@ class HpageController < ApplicationController
       flash[:no_page] = "Sorry--#{params[:id]} doesn't have a HashPage! Tell them to get one!"
       redirect_to root_url
     else
-      if @user.tweets
-        page = ((@user.tweets.count)/100)+1
-      else
-        page = 1
-      end
+      page = ((@user.tweets.count)/100)+1
       all_tweets = fetch_tweets(params[:id], page)
       @categories = @user.categories
       hashes = @user.hashtags
