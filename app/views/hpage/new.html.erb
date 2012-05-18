@@ -1,17 +1,17 @@
 <%= form_tag "http://localhost:3000/hpage/", :method => "post" do %>
   Select three categories and hashtags separated by commas.
   <%= label_tag "Category 1:" %>
-  <%= text_field_tag "category1", @cat1.header %>
+  <%= text_field_tag "category1", @cat1 %>
   <%= label_tag "Hash 1:" %>
   <%= text_field_tag "hash1", @tags1.join(", ") %>
   <br>
   <%= label_tag "Category 2:" %>
-  <%= text_field_tag "category2", @cat2.header %>
+  <%= text_field_tag "category2", @cat2 %>
   <%= label_tag "Hash 2:" %>
   <%= text_field_tag "hash2", @tags2.join(", ") %>
   <br>
   <%= label_tag "Category 3:" %>
-  <%= text_field_tag "category3", @cat3.header %>
+  <%= text_field_tag "category3", @cat3 %>
   <%= label_tag "Hash 3:" %>
   <%= text_field_tag "hash3", @tags3.join(", ") %>
   <br>

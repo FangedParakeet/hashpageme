@@ -18,25 +18,34 @@ class HpageController < ApplicationController
 
   def new
     categories = current_user.categories
-    @cat1 = categories[0]
-    @cat2 = categories[1]
-    @cat3 = categories[2]
-    hashtags1 = Hashtag.find_all_by_category_id(@cat1.id)
-    @tags1 = []
-    hashtags1.each do |hashtag|
-      @tags1 << hashtag.tag
+    if !categories.empty?
+      @cat1 = categories[0].header
+      @cat2 = categories[1].header
+      @cat3 = categories[2].header
+      hashtags1 = Hashtag.find_all_by_category_id(categories[0].id)
+      @tags1 = []
+      hashtags1.each do |hashtag|
+        @tags1 << hashtag.tag
+      end
+      hashtags2 = Hashtag.find_all_by_category_id(categories[1].id)
+      @tags2 = []
+      hashtags2.each do |hashtag|
+        @tags2 << hashtag.tag
+      end
+      hashtags3 = Hashtag.find_all_by_category_id(categories[2].id)
+      @tags3 = []
+      hashtags3.each do |hashtag|
+        @tags3 << hashtag.tag
+      end
+      @bio = current_user.bio
+    else
+      @cat1 = nil
+      @cat2 = nil
+      @cat3 = nil
+      @tags1 = []
+      @tags2 = []
+      @tags3 = []
     end
-    hashtags2 = Hashtag.find_all_by_category_id(@cat2.id)
-    @tags2 = []
-    hashtags2.each do |hashtag|
-      @tags2 << hashtag.tag
-    end
-    hashtags3 = Hashtag.find_all_by_category_id(@cat3.id)
-    @tags3 = []
-    hashtags3.each do |hashtag|
-      @tags3 << hashtag.tag
-    end
-    @bio = current_user.bio
   end
   
   def create
