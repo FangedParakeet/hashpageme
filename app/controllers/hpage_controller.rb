@@ -10,21 +10,9 @@ class HpageController < ApplicationController
       @cat1 = categories[0].header
       @cat2 = categories[1].header
       @cat3 = categories[2].header
-      hashtags1 = Hashtag.find_all_by_category_id(categories[0].id)
-      @tags1 = []
-      hashtags1.each do |hashtag|
-        @tags1 << hashtag.tag
-      end
-      hashtags2 = Hashtag.find_all_by_category_id(categories[1].id)
-      @tags2 = []
-      hashtags2.each do |hashtag|
-        @tags2 << hashtag.tag
-      end
-      hashtags3 = Hashtag.find_all_by_category_id(categories[2].id)
-      @tags3 = []
-      hashtags3.each do |hashtag|
-        @tags3 << hashtag.tag
-      end
+      @tags1 = gather_hashtags(categories[0])
+      @tags2 = gather_hashtags(categories[1])
+      @tags3 = gather_hashtags(categories[2])
     else
       @cat1 = nil
       @cat2 = nil

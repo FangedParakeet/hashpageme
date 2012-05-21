@@ -1,5 +1,14 @@
 module HpageHelper
   
+  def gather_hashtags(category)
+    hashtags = Hashtag.find_all_by_category_id(category.id)
+    tags = []
+    hashtags.each do |hashtag|
+      tags << hashtag.tag
+    end
+    return tags
+  end
+  
   def create_category(category_name, hash)
     category = Category.new
     category.header = category_name
