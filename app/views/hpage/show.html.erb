@@ -9,12 +9,10 @@ About me:
   <section id="col<%= i %>">
     <h2><%= category.header %></h2>
     <ul>
-      <% @tweets.each do |tweet| %>
-        <% if tweet.category_id == category.id %>
-            <li> <%= tweet.text %> </li>
-        <% end %>
+      <% @tweets.find_all_by_category_id(category.id).each do |tweet| %>
+        <li> <%= tweet.text %> </li>
       <% end %>
     </ul>
   </section>
-  <% i += 1%>
+  <% i += 1 %>
 <% end %>

@@ -50,6 +50,7 @@ module HpageHelper
         if hash.tag
           if tweet.text.include?(hash.tag)
             tweet.category_id = hash.category_id
+            tweet.save
           end
         end
       end
