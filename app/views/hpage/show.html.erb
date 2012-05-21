@@ -6,15 +6,15 @@ About me:
 
 <% i = 1 %>
 <% @categories.each do |category|%>  
-    <section id="col<%= i %>">
-      <h2><%= category.header %></h2>
-        <ul>
-          <% @local_tweets.each do |tweet| %>
-            <% if tweet.category_id == category.id %>
-          <li> <%= tweet.text %> </li>
-            <% end %>
-          <% end %>
-        </ul>
-      </section>
-      <% i += 1%>
+  <section id="col<%= i %>">
+    <h2><%= category.header %></h2>
+    <ul>
+      <% @tweets.each do |tweet| %>
+        <% if tweet.category_id == category.id %>
+            <li> <%= tweet.text %> </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+  <% i += 1%>
 <% end %>

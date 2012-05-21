@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"] 
       user.photo = auth["info"]["image"]
-      user.handle = auth["info"]["nickname"]     
+      user.handle = auth["info"]["nickname"].downcase     
     end
   end
   

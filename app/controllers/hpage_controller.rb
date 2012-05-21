@@ -45,34 +45,14 @@ class HpageController < ApplicationController
 
   
   def show
-    @user = User.find_by_handle(params[:id])
+    @user = User.find_by_handle(params[:id].downcase)
     if @user.nil?
       flash[:no_page] = "Sorry--#{params[:id]} doesn't have a HashPage! Tell them to get one!"
       redirect_to root_url
     else
-      page = ((@user.tweets.count)/100)+1
-      all_tweets = Twitter::FetchesTweets.fetch(params[:id], page)
+      update_local_tweets(@user)
       @categories = @user.categories
-      hashes = @user.hashtags
-      all_tweets.each do |tweet|
-        if @user.tweets.find_by_text(tweet["text"].sub(/&amp;/, '&'))
-        else
-        t = Tweet.new
-        t.text = tweet["text"].sub(/&amp;/, '&')
-        t.user_id = @user.id
-        t.save
-      end
-      end
-      @local_tweets = @user.tweets
-      @local_tweets.each do |tweet|
-        hashes.each do |hash|
-          if hash.tag
-            if tweet.text.include?(hash.tag)
-            tweet.category_id = hash.category_id
-            end
-          end
-        end
-      end
+      @tweets = @user.tweets
     end
   end
 
