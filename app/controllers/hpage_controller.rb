@@ -32,6 +32,7 @@ class HpageController < ApplicationController
       tag.destroy
     end
     current_user.bio = params[:bio]
+    current_user.save
     3.times { |i| create_category(params["category#{i+1}"], params["hash#{i+1}"]) }
     redirect_to "http://localhost:3000/#{User.find_by_id(session[:user_id]).handle}"
   end 

@@ -1,4 +1,4 @@
-Hashpageme::Application.routes.draw do
+  Hashpageme::Application.routes.draw do
 
   resources :hpage
   

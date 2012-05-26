@@ -48,7 +48,7 @@ module HpageHelper
     local_tweets.each do |tweet|
       hashes.each do |hash|
         if hash.tag
-          if tweet.text.include?(hash.tag)
+          if tweet.text.downcase.include?(hash.tag.downcase)
             tweet.category_id = hash.category_id
             tweet.save
           end
