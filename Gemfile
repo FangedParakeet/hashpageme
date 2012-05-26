@@ -9,7 +9,7 @@ group :development do
 end
 
 group :production do
-	gem 'pg', '0.12.3'
+	gem 'pg'
 	gem 'thin'
 	gem 'omniauth-twitter'
 end
