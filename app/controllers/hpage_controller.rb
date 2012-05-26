@@ -7,19 +7,27 @@ class HpageController < ApplicationController
   def new
     categories = current_user.categories
     if !categories.empty?
-      @cat1 = categories[0].header
-      @cat2 = categories[1].header
-      @cat3 = categories[2].header
-      @tags1 = gather_hashtags(categories[0])
-      @tags2 = gather_hashtags(categories[1])
-      @tags3 = gather_hashtags(categories[2])
-    else
-      @cat1 = nil
-      @cat2 = nil
-      @cat3 = nil
-      @tags1 = []
-      @tags2 = []
-      @tags3 = []
+      if categories[0]
+        @cat1 = categories[0].header
+        @tags1 = gather_hashtags(categories[0])
+      else
+        @cat1 = nil
+        @tags1 = []
+      end
+      if categories[1]
+        @cat2 = categories[1].header
+        @tags2 = gather_hashtags(categories[1])
+      else
+        @cat2 = nil
+        @tags2 = []
+      end
+      if categories[2]
+        @cat3 = categories[2].header
+        @tags3 = gather_hashtags(categories[2])
+      else
+        @cat3 = nil
+        @tags3 = []
+      end    
     end
     @bio = current_user.bio
   end
