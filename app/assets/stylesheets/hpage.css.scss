@@ -1,3 +1,15 @@
 // Place all the styles related to the hpage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container{
+	width: 1000px;
+	border: 2px solid red;
+}
+
+#headline1{
+	width: 900px;
+	color: red;
+	font-size: 10em;
+	text-align: center;
+}
