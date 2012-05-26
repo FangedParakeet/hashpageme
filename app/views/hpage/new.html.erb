@@ -1,4 +1,4 @@
-<%= form_tag "http://localhost:3000/hpage/", :method => "post" do %>
+<%= form_tag hpage_index_url, :method => "post" do %>
   Select three categories and hashtags separated by commas.
   <%= label_tag "Category 1:" %>
   <%= text_field_tag "category1", @cat1 %>

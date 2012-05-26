@@ -29,9 +29,9 @@
             <span class="icon-bar"></span>
           </a>
           <% if session[:user_id] %>
-            <a class="brand" href="http://localhost:3000/hpage/new">HashPage</a>
+            <%= link_to "Hashpage", new_hpage_url, class: "brand" %>
           <% else %>
-            <a class="brand" href="http://localhost:3000">HashPage</a>
+            <%= link_to "Hashpage", hpage_index_url, class: "brand" %>
           <% end %>
           <div class="container nav-collapse">
             <ul class="nav">

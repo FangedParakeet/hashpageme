@@ -11,6 +11,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     flash[:signed_out] = "Signed out!"
     redirect_to root_url
-    
   end
 end
