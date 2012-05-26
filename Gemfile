@@ -4,8 +4,16 @@ gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development do
+	gem 'sqlite3'
+end
 
-gem 'sqlite3'
+group :production do
+	gem 'pg', '0.12.3'
+	gem 'thin'
+	gem 'omniauth-twitter'
+end
+
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'therubyracer'
@@ -24,7 +32,6 @@ end
 
 gem 'jquery-rails'
 
-gem 'omniauth-twitter'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
