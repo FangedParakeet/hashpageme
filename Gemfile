@@ -11,10 +11,9 @@ end
 group :production do
 	gem 'pg'
 	gem 'thin'
-	gem 'omniauth-twitter'
 end
 
-
+gem 'omniauth-twitter'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'therubyracer'
 
