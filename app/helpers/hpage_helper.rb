@@ -10,7 +10,7 @@ module HpageHelper
   end
   
   def create_category(category_name, hash)
-    if !category_name.empty?
+    if !category_name.empty? # change to nil?
       category = Category.new
       category.header = category_name
       category.user_id = session[:user_id]

@@ -12,4 +12,9 @@ class SessionsController < ApplicationController
     flash[:signed_out] = "Signed out!"
     redirect_to root_url
   end
+
+	def failure
+		flash[:alert] = 'Something went wrong!'
+		redirect_to root_url
+	end
 end

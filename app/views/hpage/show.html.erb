@@ -1,18 +1,23 @@
-<%= image_tag @user.photo %> @<%= @user.handle %>
-<h1><%= @user.name %></h1>
+<section id="hashpage">
+<%= image_tag "walk.jpg", class: "headpic" %>
+<section id="profileHead">
+<%= image_tag @user.photo, class: "profilepic" %>
+<h1 id="profileName"><%= @user.name %></h1>
 <br>
-About me:
+<section id="aboutme">
+<h2>About me:</h2>
 <p> <%= @user.bio %> </p>
-
-<% i = 1 %>
-<% @categories.each do |category|%>  
-  <section id="col<%= i %>">
-    <h2><%= category.header %></h2>
-    <ul>
-      <% @tweets.find_all_by_category_id(category.id).each do |tweet| %>
-        <li> <%= tweet.text %> </li>
-      <% end %>
-    </ul>
-  </section>
-  <% i += 1 %>
-<% end %>
+</section>
+  <% i = 1 %>
+  <% @categories.each do |category|%>  
+    <section id="col<%= i %>">
+      <h2><%= category.header %></h2>
+      <ul>
+        <% @tweets.find_all_by_category_id(category.id).each do |tweet| %>
+          <li> <%= tweet.text %> </li>
+        <% end %>
+      </ul>
+    </section>
+    <% i += 1 %>
+  <% end %>
+</section>
