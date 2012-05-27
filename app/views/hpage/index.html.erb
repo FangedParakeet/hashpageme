@@ -1,10 +1,24 @@
-
-
-
-
-
-
-<h1 id="headline1">Trend Yourself</h1>
-
 <%= flash[:signed_out] %>
+<h1 id="headline1">Trend Yourself</h1>
+  <h2 id="headline2">Show people what you're really into with a HashPage</h2>
+    <div><%= link_to "Sign in with Twitter", "/auth/twitter", class: "btn large btn-success" %></div>
+     <section id="endorsements">
+       <%= image_tag "example.png", class: "exampleImg" %>
+      <div><quote>"If Twitter & LinkedIn had a baby, it would be a HashPage." <br>- Dave Hoover, Groupon</quote></div><br>
+      <div><quote>Winner of "Most Likely to be a game changer" Award. <br>Code Academy, Spring 2012</quote></div>
+     </section>
+<section id="example">
+  <h2>Organize your tweets by the hash tags you customize.</h2>
+    <div><quote>HashPages combine real-time info with a consistent person.</quote></div>
+</section>
 
+<footer>
+  <section id="col1">
+  <h3>See Friends Trends</h3>
+  <p>Tell your friends to trend themselves!</p>
+  </section>
+  <section id="col2">
+    <h3>Have some say in what people see</h3>
+    <p>Give people a clearer picture of your topics and interests. HashPage collects and organizes your tweets to show people what you're into.</p>
+  </section>
+</footer>

@@ -2,14 +2,83 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html{
+}
+
+body{
+	background-image: url("farmer.png");
+		text-align: center;
+}
 .container{
-	width: 1000px;
-	border: 2px solid red;
+	width: 960px;
+	padding: 50px;
+	background: rgba(255,255,255,.2);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	box-shadow: inset 0 0 1px #B3B3B3;
 }
 
 #headline1{
+	
+	font-family: 'Belgrano', serif;
+	font-weight: bold;
+/*	font-family: 'Imprima', sans-serif;*/
+
 	width: 900px;
-	color: red;
-	font-size: 10em;
-	text-align: center;
+	color: black;
+	text-shadow: 1px 0 1px gray;
+	font-size: 8em;
+	margin: 20px auto;
+	padding: 20px 0 20px 0;
+}
+
+#headline2{
+	margin: 20px 0 0 0 ;
+	padding: 20px 0 20px 0;	
+	font-family: 'Belgrano', serif;
+}
+
+#endorsements{
+	font-family: 'Comfortaa', cursive;
+	font-size: 1.5em;
+	padding: 15px 0;
+	margin: 50px 0 50px 0;
+	line-height:30px;		
+}
+.exampleImg{
+	width: 300px;
+	float:left;
+	box-shadow: 1px 1px 6px gray;
+	margin: -60px 20px 0 -50px;	
+	-moz-transform: scale(1) rotate(-3deg) translate(0px, 0px) skew(0deg, 0deg);
+	-webkit-transform: scale(1) rotate(-3deg) translate(0px, 0px) skew(0deg, 0deg);
+	-o-transform: scale(1) rotate(-3deg) translate(0px, 0px) skew(0deg, 0deg);
+	-ms-transform: scale(1) rotate(-3deg) translate(0px, 0px) skew(0deg, 0deg);
+	transform: scale(1) rotate(-3deg) translate(0px, 0px) skew(0deg, 0deg);
+}
+section#example{
+	font-family: 'Belgrano', serif;
+	font-weight: bold;
+	width: 1000px;
+}
+
+footer{
+	font-family: 'Belgrano', serif;
+	background: gray;
+	margin: 150px 0 0 0;
+}
+
+#col1{
+	float:left;
+	width: 400px;
+	height: 200px;
+	padding: 10px 20px 10px 10px;
+	border-right: 2px solid gray;
+	
+}
+#col2{
+	float:right;
+	width: 400px;
+	height: 200px;
+	padding: 10px;
 }

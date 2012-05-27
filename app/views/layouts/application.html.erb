@@ -17,37 +17,9 @@
     <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
     <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+    <link href='http://fonts.googleapis.com/css?family=Belgrano|Comfortaa:400,700,300|Imprima' rel='stylesheet' type='text/css'>
   </head>
   <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <% if session[:user_id] %>
-            <%= link_to "Hashpage", new_hpage_url, class: "brand" %>
-          <% else %>
-            <%= link_to "Hashpage", hpage_index_url, class: "brand" %>
-          <% end %>
-          <div class="container nav-collapse">
-            <ul class="nav">
-            <% if session[:user_id] %>
-              <%= image_tag current_user.photo %> Welcome <%= current_user.name %>. 
-              <%= link_to "Sign out", signout_path %>
-            <% else %>
-              <%= link_to "Sign in with Twitter", "/auth/twitter" %>
-            <% end %>
-            <%= flash[:no_page] %>
-            <%= flash[:notice] %>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
 
     <div class="container">
       <div class="content">
